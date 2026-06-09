@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>The Union of Two Hearts - Premium Wedding Invitation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* ==========================================================================
+           1. MOBILE-FIRST PREMIUM DESIGN SYSTEM (ANDROID SPECIFIC FIXES)
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: #030303;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Fluid Shimmer Gold Gradients */
+        .gold-text-glow {
+            background: linear-gradient(90deg, #BF953F 0%, #FCF6BA 30%, #B38728 50%, #FBF5B7 70%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Cinzel Decorative', serif;
+            text-shadow: 0 0 25px rgba(251, 245, 183, 0.35);
+        }
+
+        .gold-text {
+            background: linear-gradient(90deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+
+        /* LOVE THEME CINEMATIC VFX LAYERS */
+        .premium-love-vignette {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 40%, transparent 10%, rgba(5, 2, 4, 0.5) 50%, rgba(0, 0, 0, 0.95) 100%);
+        }
+
+        .cinematic-bokeh-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.65;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(252, 246, 186, 0.06) 0%, transparent 15%),
+                radial-gradient(circle at 80% 70%, rgba(191, 149, 63, 0.07) 0%, transparent 20%),
+                radial-gradient(circle at 50% 85%, rgba(223, 44, 90, 0.04) 0%, transparent 25%);
+        }
+
+        .light-leak-vfx {
+            position: absolute;
+            top: -5%; left: -10%;
+            width: 120%; height: 50%;
+            background: radial-gradient(ellipse at center, rgba(252, 246, 186, 0.06) 0%, rgba(191, 149, 63, 0.02) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(35px);
+            animation: anamorphicGlow 14s infinite ease-in-out alternate;
+        }
+
+        @keyframes anamorphicGlow {
+            0% { transform: translateY(0px) scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(15px) scale(1.03) rotate(2deg); opacity: 0.9; }
+            100% { transform: translateY(-5px) scale(0.97) rotate(-1deg); opacity: 0.5; }
+        }
+
+        .cinematic-sparkle-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        /* PREMIUM GOLD BOX CONTAINER STRUCTURE FOR SECTIONS */
+        .premium-gold-panel {
+            position: relative;
+            background: rgba(15, 11, 12, 0.65);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(191, 149, 63, 0.4);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(252, 246, 186, 0.05);
+            padding: 30px 20px;
+            margin-bottom: 35px;
+            transition: border-color 0.4s ease;
+            overflow: hidden;
+        }
+
+        /* Dynamic Continuous Focus Light Flash Overlays */
+        .focus-light-flash {
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(252, 246, 186, 0.25) 50%, transparent 100%);
+            transform: skewX(-30deg);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* ==========================================================================
+           2. VIRTUAL INTRO GATEWAY (MOBILE ADDRESS BAR SAFE)
+           ========================================================================== */
+        .vfx-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            height: -webkit-fill-available;
+            z-index: 999;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .video-container {
+            position: absolute;
+            width: 100%; height: 100%;
+            overflow: hidden;
+        }
+
+        #cinema-video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.45;
+        }
+
+        .intro-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .intro-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 4px;
+            line-height: 1.4;
+        }
+
+        /* Modernized Kinetic Luxury Button */
+        .premium-btn {
+            background: transparent;
+            border: 1px solid rgba(252, 246, 186, 0.6);
+            color: #FCF6BA;
+            padding: 14px 36px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 50px;
+            transition: color 0.5s ease, border-color 0.5s ease;
+            text-transform: uppercase;
+            outline: none;
+        }
+
+        .premium-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, #BF953F, #FCF6BA);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .premium-btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .premium-btn:hover {
+            color: #030303;
+            border-color: transparent;
+            box-shadow: 0 0 25px rgba(252, 246, 186, 0.4);
+        }
+
+        /* ==========================================================================
+           3. EXPERIENTIAL CANVAS SYSTEM
+           ========================================================================== */
+        main {
+            position: relative;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .ambient-dark-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(3,3,3,0.97) 0%, rgba(16,9,11,0.92) 35%, rgba(10,6,8,0.94) 70%, rgba(3,3,3,0.99) 100%);
+            z-index: 1;
+        }
+
+        .section-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.8rem;
+            color: #BF953F;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            line-height: 1.3;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #FCF6BA, transparent);
+        }
+
+        /* ==========================================================================
+           4. ANDROID MOBILE HERO REGISTRY
+           ========================================================================== */
+        .hero-names h2 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.2rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: #FCF6BA;
+            line-height: 1.3;
+            text-shadow: 0 4px 20px rgba(252, 246, 186, 0.15);
+        }
+
+        .premium-caption {
+            font-family: 'Cinzel', serif;
+            color: #bfa37a;
+            margin-top: 25px;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+
+        .medical-heartbeat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 35px 0;
+            width: 100%;
+        }
+
+        .medical-heartbeat .line {
+            height: 1px;
+            flex-grow: 1;
+            max-width: 100px;
+            opacity: 0.5;
+        }
+
+        .medical-heartbeat .line-left {
+            background: linear-gradient(90deg, transparent, rgba(252, 246, 186, 0.8));
+        }
+
+        .medical-heartbeat .line-right {
+            background: linear-gradient(90deg, rgba(252, 246, 186, 0.8), transparent);
+        }
+
+        .pulse-icon-container {
+            position: relative;
+            margin: 0 20px;
+            color: #BF953F;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart-pulse {
+            color: #df2c5a;
+            font-size: 1.1rem;
+            position: absolute;
+            animation: stethoscopePulse 1.4s infinite ease-in-out;
+        }
+
+        @keyframes stethoscopePulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            30% { transform: scale(1.4); opacity: 1; text-shadow: 0 0 15px rgba(223,44,90,0.8); }
+            60% { transform: scale(1); opacity: 0.9; }
+            80% { transform: scale(1.25); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* ==========================================================================
+           5. PREMIUM LIQUID GOLD RIBBON CURTAIN SYSTEM (EXACT PREVIEW MATCH)
+           ========================================================================== */
+        #curtain-wrapper {
+            position: relative;
+            width: 100%;
+            height: 480px; 
+            margin-top: 30px;
+            overflow: hidden;
+            display: none;
+            border-radius: 16px;
+            box-shadow: 0 35px 80px rgba(0,0,0,0.95);
+            background: radial-gradient(circle at 50% 50%, #110e08 0%, #030201 100%);
+            border: 2px solid #BF953F;
+        }
+
+        /* Top Ornate Gold Trim Valance Layer */
+        #curtain-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 45px;
+            background: linear-gradient(180deg, #AA771C 0%, #FCF6BA 30%, #BF953F 65%, transparent 100%);
+            z-index: 8;
+            border-bottom: 1px solid rgba(252, 246, 186, 0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+
+        .curtain-side {
+            position: absolute;
+            top: 0;
+            width: 51%;
+            height: 100%;
+            z-index: 6;
+            background: linear-gradient(90deg, 
+                #8a6f27 0%, #e8d08d 15%, #bfa353 30%, 
+                #94782f 45%, #f7e7b4 60%, #aa8936 75%, 
+                #fcf3cd 90%, #6e541c 100%);
+            background-size: 55px 100%; 
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.75), 8px 0 30px rgba(0,0,0,0.8);
+        }
+
+        .left-curtain {
+            left: 0;
+            border-right: 2px solid #FCF6BA;
+            background: linear-gradient(90deg, #574214 0%, #bfa353 25%, #f7e7b4 50%, #94782f 75%, #ddc47a 100%);
+            background-size: 45px 100%;
+        }
+
+        .right-curtain {
+            right: 0;
+            border-left: 2px solid #FCF6BA;
+            background: linear-gradient(90deg, #ddc47a 0%, #94782f 25%, #f7e7b4 50%, #bfa353 75%, #574214 100%);
+            background-size: 45px 100%;
+        }
+
+        /* Luxurious Metallic Hanging Tassels */
+        .curtain-handle {
+            position: absolute;
+            bottom: 45px;
+            width: 14px;
+            height: 100px;
+            background: linear-gradient(90deg, #AA771C, #fefae0, #B38728, #fcf3cd);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.65);
+            border-radius: 4px;
+            animation: tasselSway 3.5s infinite ease-in-out alternate;
+        }
+
+        .left-curtain .curtain-handle { right: 20px; transform-origin: top center; }
+        .right-curtain .curtain-handle { left: 20px; transform-origin: top center; }
+
+        @keyframes tasselSway {
+            0% { transform: rotate(-2.5deg); filter: brightness(0.9); }
+            100% { transform: rotate(2.5deg); filter: brightness(1.1); }
+        }
+
+        .curtain-handle::after {
+            content: '';
+            position: absolute;
+            bottom: -18px; left: 50%;
+            transform: translateX(-50%);
+            width: 24px; height: 24px;
+            background: linear-gradient(135deg, #FCF6BA, #AA771C);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%);
+        }
+
+        .curtain-matter {
+            position: relative;
+            z-index: 7;
+            padding: 75px 20px 40px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.92);
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Starry Gold Dust field behind ribbon curtains */
+        .reveal-bg-sparkles {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(251, 245, 183, 0.12) 0%, transparent 75%);
+            background-image: radial-gradient(rgba(252, 246, 186, 0.1) 1px, transparent 0);
+            background-size: 16px 16px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .curtain-matter h4 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        .curtain-matter .date {
+            font-size: 1.2rem;
+            color: #FCF6BA;
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        .mini-btn {
+            padding: 10px 24px;
+            font-size: 0.75rem;
+            margin-top: 15px;
+            width: auto;
+            min-width: 160px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        /* ==========================================================================
+           6. MOBILE CHRONOMETER ENGINE
+           ========================================================================== */
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .time-block {
+            position: relative;
+            padding: 10px;
+            width: 45%;
+        }
+
+        .time-block span {
+            font-size: 2.5rem;
+            font-family: 'Cinzel', serif;
+            color: #FCF6BA;
+            display: block;
+            font-weight: 500;
+            line-height: 1;
+            text-shadow: 0 4px 15px rgba(252,246,186,0.25);
+        }
+
+        .time-block p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #bfa37a;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+
+        /* ==========================================================================
+           7. TOP & BOTTOM STACKED SLIDESHOW GALLERIES
+           ========================================================================== */
+        .gallery-wrapper-stacked {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+            background: #000;
+            margin-top: 15px;
+        }
+
+        .slideshow-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 20%, rgba(252, 246, 186, 0.08) 0%, transparent 60%),
+                        linear-gradient(to top, rgba(3,3,3,0.9) 0%, transparent 50%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .cinematic-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #BF953F;
+            padding: 8px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #FCF6BA;
+            text-transform: uppercase;
+            pointer-events: none;
+            white-space: nowrap;
+            border-radius: 4px;
+        }
+
+        .slide-frame, .memory-frame {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-frame img,
+        .memory-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-frame img {
+            filter: brightness(0.75) contrast(1.1);
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .prev-arrow, .next-arrow {
+            cursor: pointer;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FCF6BA;
+            font-size: 14px;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            user-select: none;
+            border: 1px solid rgba(252, 246, 186, 0.25);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .prev-arrow:active, .next-arrow:active {
+            background: #FCF6BA;
+            color: #030303;
+            box-shadow: 0 0 15px rgba(252, 246, 186, 0.5);
+        }
+
+        /* ==========================================================================
+           8. GEOMETRIC MAP LAYOUT
+           ========================================================================== */
+        .map-wrapper {
+            width: 100%;
+            border: 1px solid rgba(252, 246, 186, 0.2);
+            padding: 4px;
+            background: rgba(15,15,15,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            margin-top: 20px;
+        }
+
+        .map-wrapper iframe {
+            filter: invert(92%) hue-rotate(180deg) contrast(125%);
+            opacity: 0.75;
+            display: block;
+            border-radius: 8px;
+            height: 280px;
+        }
+
+        .story-box p {
+            line-height: 2.0;
+            font-size: 1rem;
+            color: #e3ded7;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+        }
+
+        .god-overlay {
+            position: absolute;
+            width: 100%; height: 100%; top: 0; left: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4), rgba(0,0,0,0.95));
+        }
+
+        .intro-video {
+            position: absolute;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .desktop-video { display: block; }
+        .mobile-video { display: none; }
+
+        #video-intro::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        body.intro-active { overflow: hidden; }
+        #video-intro { background: #000; }
+
+        /* ==========================================================================
+           9. MOBILE EXTRAS & CRITICAL ADAPTATIONS
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .desktop-video { display: none; }
+            .mobile-video { display: block; }
+            
+            .hero-names h2 {
+                font-size: 2.3rem; /* Prevents long names overlapping on mobile screens */
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .story-box p {
+                font-size: 0.9rem;
+                line-height: 1.8;
+                padding: 0 5px;
+            }
+            #curtain-wrapper {
+                height: 440px; /* Slight scale optimization on pocket smartphone devices */
+            }
+            .curtain-matter h4 {
+                font-size: 1.3rem;
+            }
+            .curtain-matter .date {
+                font-size: 1rem;
+            }
+            .time-block span {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="premium-love-vignette"></div>
+    <div class="cinematic-bokeh-canvas"></div>
+
+    <section id="video-intro" class="vfx-overlay hidden">
+        <video autoplay muted preload="auto" id="desktop-video" class="intro-video desktop-video" playsinline>
+            <source src="D:\new\video\desktop.mp4" type="video/mp4">
+        </video>
+
+        <video autoplay muted preload="auto" id="mobile-video" class="intro-video mobile-video" playsinline>
+            <source src="D:\new\video\mobile.mp4" type="video/mp4">
+        </video>
+
+        <div class="god-overlay"></div>
+    </section>
+
+    <audio id="bg-music" loop>
+        <source src="D:\new\music\WhatsApp Audio 2026-06-09 at 12.22.51.mpeg" type="audio/mp3">
+    </audio>
+
+    <section id="intro-overlay" class="vfx-overlay">
+        <div class="video-container">
+            <video muted loop id="cinema-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-gold-particles-background-40003-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="intro-content">
+            <h1 class="gold-text-glow">The Loyal Union</h1>
+            <button class="premium-btn" onclick="playIntroVideo()">Enter Experience</button>
+        </div>
+    </section>
+
+    <main id="main-experience" class="hidden" style="background-image: url('https://images.unsplash.com/photo-1519225495810-7512c696505a?w=1600');">
+        <div class="light-leak-vfx"></div>
+        <div class="cinematic-sparkle-layer" id="sparkle-vfx-canvas"></div>
+        <div class="ambient-dark-overlay"></div>
+
+        <section id="hero-registry" class="section-container" style="min-height: auto; padding: 40px 24px 10px 24px;">
+            <div class="premium-gold-panel" style="margin-bottom: 0;">
+                <div class="focus-light-flash"></div>
+                <div class="hero-names">
+                    <h2 class="groom-name">Rahul</h2>
+                    
+                    <div class="medical-heartbeat">
+                        <span class="line line-left"></span>
+                        <div class="pulse-icon-container">
+                            <i class="fa-solid fa-stethoscope"></i>
+                            <i class="fa-solid fa-heart heart-pulse"></i>
+                        </div>
+                        <span class="line line-right"></span>
+                    </div>
+
+                    <h2 class="bride-name">Vaishnavi</h2>
+                    <p class="premium-caption">Bound by Destiny, Healed by Love</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="medical-chronicle" class="section-container">
+            <div class="premium-gold-panel">
+                <div class="focus-light-flash"></div>
+                <h3 class="section-title">The Medical Love Story</h3>
+                <div class="story-box">
+                    <p>In the corridors of MBBS, two hearts found each other between duty and destiny. They learned to heal pain, save lives, and still protect the peace they found in one another. Every heartbeat became a promise, every white coat carried their shared dream. Now, this beautiful prescription called love reaches its next chapter on August 16th. A journey where two doctors don’t just treat lives — they choose to live one together.</p>
+                    
+                    <div style="margin-top: 25px; padding: 15px 10px 0 10px; border-top: 1px dashed rgba(191, 149, 63, 0.25); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <i class="fa-solid fa-heart" style="color: #df2c5a; font-size: 0.85rem; filter: drop-shadow(0 0 6px rgba(223,44,90,0.6));"></i>
+                        <p style="font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.95rem; line-height: 1.5; letter-spacing: 1px; font-style: italic; background: linear-gradient(90deg, #FCF6BA, #bfa37a, #FCF6BA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; display: inline;">" Not every story needs a war , Some are written with heathfelt Blessings "</p>
+                        <i class="fa-solid fa-heart" style="color: #df2c5a; font-size: 0.85rem; filter: drop-shadow(0 0 6px rgba(223,44,90,0.6));"></i>
+                    </div>
+                </div>
+                <div style="position: relative; width: 100%; min-height: 120px; background: radial-gradient(circle, rgba(191,149,63,0.12) 0%, transparent 70%); border-radius: 50%; margin-top: 20px;">
+                    <div style="position: absolute; top:50%; left:50%; transform:translate(-50%,-50%); color: rgba(252,246,186,0.1); font-size: 6rem; font-family:'Cinzel';">VR</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="itinerary-portal" class="section-container">
+            <div class="premium-gold-panel">
+                <div class="focus-light-flash"></div>
+                <h3 class="section-title" style="display: flex; flex-direction: column; align-items: center; gap: 4px; margin-bottom: 25px;">
+                    <span style="display: flex; flex-direction: row; justify-content: center; gap: 6px; white-space: nowrap;">
+                        <span style="font-family: 'Cinzel Decorative', serif; font-weight: 700; color: #FCF6BA; letter-spacing: 1px;">Romeo Juliet</span>
+                    </span>
+                    <span style="font-family: 'Cinzel Decorative', serif; font-weight: 400; color: #BF953F; display: block; width: 100%;">Celebrations</span>
+                </h3>
+                
+                <p style="color: #bfa37a; font-family: 'Cinzel', serif; letter-spacing: 1px; margin-bottom: 30px; font-size: 0.9rem; line-height: 1.4;">Click below to open the grand curtains to the celebration schedule.</p>
+                
+                <div class="event-action-holder">
+                    <button class="premium-btn" onclick="executeCurtainReveal()">Reveal Event Details</button>
+                </div>
+
+                <div id="curtain-wrapper">
+                    <div class="reveal-bg-sparkles"></div>
+
+                    <div class="curtain-side left-curtain">
+                        <div class="curtain-handle"></div>
+                    </div>
+
+                    <div class="curtain-side right-curtain">
+                        <div class="curtain-handle"></div>
+                    </div>
+                    
+                    <div class="curtain-matter" id="curtain-content">
+                        <div style="width: 100%; padding-bottom: 5px;">
+                            <p style="font-family: 'Cinzel', serif; color: #FCF6BA; font-weight: 600; letter-spacing: 3px; font-size: 0.85rem; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.9);">Together with their families</p>
+                        </div>
+
+                        <div>
+                            <h4 class="gold-text-glow">THE GRAND<br>WEDDING CEREMONY</h4>
+                            
+                            <div style="border-top: 1px solid rgba(191,149,63,0.35); border-bottom: 1px solid rgba(191,149,63,0.35); padding: 12px 0; margin: 10px auto; width: 85%; background: rgba(0,0,0,0.2); border-radius: 4px;">
+                                <p class="date"><i class="fa-regular fa-calendar-days" style="color: #FCF6BA; margin-right: 8px;"></i> 16 AUGUST 2026</p>
+                                <p style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: #bfa37a; letter-spacing: 2px; margin-top: 5px; font-weight: 600;">SATURDAY</p>
+                            </div>
+
+                            <p style="font-family: 'Cinzel', serif; font-size: 0.75rem; color: #FCF6BA; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">A Celebration of Love, Tradition & Togetherness</p>
+                            <p style="font-size: 0.95rem; color: #ffffff; font-weight: 400; text-shadow: 0 1px 5px rgba(0,0,0,0.8);"><i class="fa-solid fa-location-dot" style="color: #BF953F; margin-right: 5px;"></i> Kavali</p>
+                        </div>
+                        
+                        <button class="premium-btn mini-btn" onclick="executeCurtainClosure()">Close Curtains</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="chronometer" class="section-container">
+            <div class="premium-gold-panel">
+                <div class="focus-light-flash"></div>
+                <h3 class="section-title">Counting Days to Forever</h3>
+                <div class="countdown-timer">
+                    <div class="time-block"><span id="days-node">00</span><p>Days</p></div>
+                    <div class="time-block"><span id="hours-node">00</span><p>Hours</p></div>
+                    <div class="time-block"><span id="minutes-node">00</span><p>Mins</p></div>
+                    <div class="time-block"><span id="seconds-node">00</span><p>Secs</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="memories-galleries" class="section-container">
+            <div class="gallery-wrapper-stacked">
+                
+                <div class="premium-gold-panel" style="margin-bottom: 0;">
+                    <div class="focus-light-flash"></div>
+                    <h3 class="section-title">Engagement Gallery</h3>
+                    <div class="slideshow-container" id="engagement-slider">
+                        <div class="slide-frame">
+                            <img src="D:\new\images\2.jpg" alt="Engagement Portrait 1">
+                            <div class="cinematic-caption">The Beginning</div>
+                        </div>
+                        <div class="slide-frame">
+                            <img src="D:\new\images\4.jpeg" alt="Engagement Portrait 2">
+                            <div class="cinematic-caption">Two Hearts, One Rhythm</div>
+                        </div>
+                        <div class="slide-frame">
+                            <img src="D:\new\images\6.jpg" alt="Engagement Portrait 3">
+                            <div class="cinematic-caption">The Promise</div>
+                        </div>
+                        <div class="slide-frame">
+                            <img src="D:\new\images\7.jpg" alt="Engagement Portrait 4">
+                            <div class="cinematic-caption">Bound by Love</div>
+                        </div>
+                        <div class="slide-frame">
+                            <img src="D:\new\images\8.jpg" alt="Engagement Portrait 5">
+                            <div class="cinematic-caption">Forever Ahead</div>
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <span class="prev-arrow" onclick="shiftEngagementSlides(-1)">❮</span>
+                        <span class="next-arrow" onclick="shiftEngagementSlides(1)">❯</span>
+                    </div>
+                </div>
+
+                <div class="premium-gold-panel" style="margin-bottom: 0;">
+                    <div class="focus-light-flash"></div>
+                    <h3 class="section-title">Our Memories</h3>
+                    <div class="slideshow-container" id="memories-slider">
+                        <div class="memory-frame"><img src="D:\new\images\IMG-20260524-WA0016.jpg.jpeg" alt="Memory Moment 5"></div>
+                        <div class="memory-frame"><img src="D:\new\images\IMG-20260524-WA0010.jpg.jpeg" alt="Memory Moment 2"></div>
+                        <div class="memory-frame"><img src="D:\new\images\IMG-20260524-WA0009.jpg.jpeg" alt="Memory Moment 3"></div>
+                        <div class="memory-frame"><img src="D:\new\images\IMG-20260524-WA0014.jpg.jpeg" alt="Memory Moment 4"></div>
+                        <div class="memory-frame"><img src="D:\new\images\WhatsApp Image 2026-05-31 at 16.02.29.jpeg" alt="Memory Moment 1"></div>
+                    </div>
+                    <div class="gallery-controls">
+                        <span class="prev-arrow" onclick="shiftMemorySlides(-1)">❮</span>
+                        <span class="next-arrow" onclick="shiftMemorySlides(1)">❯</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="location-portal" class="section-container">
+            <div class="premium-gold-panel">
+                <div class="focus-light-flash"></div>
+                <h3 class="section-title">The Wedding Venue</h3>
+                <p style="color: #FCF6BA; font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 1px; line-height: 1.4;">Brindavanam Colony Kalyana mandapam</p>
+                <p style="color: #bfa37a; margin: 8px 0 20px 0; font-size: 0.9rem; letter-spacing: 1px;">Kavali , Nellore District , Andhra Pradesh, India</p>
+                
+                <div class="map-wrapper">
+                    <iframe src="https://maps.google.com/maps?q=Brindavanam%20Colony%20Kalyana%20mandapam,%20Kavali&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div style="margin-top: 25px;">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Brindavanam+Colony+Kalyana+mandapam+Kavali" target="_blank" style="text-decoration: none;">
+                        <button class="premium-btn" style="font-size: 0.75rem; padding: 12px 28px;">
+                            <i class="fa-solid fa-diamond-turn-right" style="margin-right: 8px;"></i>Get Directions
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let engagementStep = 1;
+        let memoryStep = 1;
+
+        const celebrationTimelineTimestamp = new Date("Aug 16, 2026").getTime();
+
+        function playIntroVideo(){
+            document.body.classList.add("intro-active");
+
+            gsap.to("#intro-overlay",{
+                opacity:0,
+                duration:1.5,
+                onComplete:()=>{
+                    document.getElementById("intro-overlay").classList.add("hidden");
+                    const videoIntro = document.getElementById("video-intro");
+                    videoIntro.classList.remove("hidden");
+
+                    let introVideo;
+                    if(window.innerWidth <= 768){
+                        introVideo = document.getElementById("mobile-video");
+                    }else{
+                        introVideo = document.getElementById("desktop-video");
+                    }
+
+                    introVideo.play();
+
+                    const mediaElement = document.getElementById("bg-music");
+                    mediaElement.volume = 0.35;
+                    mediaElement.play().catch(err => {
+                        console.log("Audio autoplay blocked");
+                    });
+
+                    gsap.from("#video-intro",{
+                        opacity:0,
+                        scale:1.05,
+                        duration:2
+                    });
+
+                    setTimeout(() => {
+                        gsap.to("#video-intro",{
+                            opacity:0,
+                            duration:1.5,
+                            ease:"power2.inOut",
+                            onComplete:()=>{
+                                introVideo.pause();
+                                document.getElementById("video-intro").classList.add("hidden");
+                                const mainContainer = document.getElementById("main-experience");
+                                mainContainer.classList.remove("hidden");
+                                document.body.classList.remove("intro-active");
+                                triggerCinematicPageReveal();
+                                initRomanticSparkles(); 
+                                triggerSequentialFocusFlashes();
+                            }
+                        });
+                    }, 5000);
+                }
+            });
+        }
+
+        function triggerCinematicPageReveal() {
+            gsap.from("#hero-registry", { opacity: 0, scale: 0.95, duration: 1.8, ease: "power4.out" });
+            gsap.from(".groom-name", { opacity: 0, y: -40, duration: 1.6, ease: "power4.out", delay: 0.3 });
+            gsap.from(".bride-name", { opacity: 0, y: 40, duration: 1.6, ease: "power4.out", delay: 0.3 });
+            gsap.from(".medical-heartbeat", { opacity: 0, scaleX: 0, duration: 1.8, ease: "power3.inOut", delay: 0.5 });
+        }
+
+        /* Continuous High-Frequency Shimmer Flash Sequences */
+        function triggerSequentialFocusFlashes() {
+            const flashes = document.querySelectorAll(".focus-light-flash");
+            flashes.forEach((flash, index) => {
+                gsap.to(flash, {
+                    left: "150%",
+                    duration: 1.5,
+                    delay: index * 0.25, 
+                    ease: "power1.inOut",
+                    repeat: -1,
+                    repeatDelay: 2.0 /* Reduced pause time for an active, persistent continuous sparkle */
+                });
+            });
+        }
+
+        function initRomanticSparkles() {
+            const sparklesHolder = document.getElementById("sparkle-vfx-canvas");
+            if (!sparklesHolder) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement("i");
+                const isHeart = Math.random() > 0.65;
+                
+                particle.className = isHeart ? "fa-solid fa-heart" : "fa-solid fa-circle";
+                particle.style.position = "absolute";
+                particle.style.color = isHeart ? "rgba(223, 44, 90, 0.22)" : "rgba(252, 246, 186, 0.25)";
+                particle.style.fontSize = (Math.random() * 8 + 6) + "px";
+                particle.style.left = Math.random() * 100 + "%";
+                particle.style.top = Math.random() * 100 + "%";
+                sparklesHolder.appendChild(particle);
+                
+                gsap.to(particle, {
+                    y: "-=" + (Math.random() * 120 + 60),
+                    x: "+=" + (Math.random() * 40 - 20),
+                    opacity: 0,
+                    duration: Math.random() * 6 + 5,
+                    repeat: -1,
+                    repeatDelay: Math.random() * 5,
+                    ease: "power1.out"
+                });
+            }
+        }
+
+        // CINEMATIC SMOOTH LIQUID GOLD OPENING ANIMATION ENGINE
+        function executeCurtainReveal() {
+            const portalFrame = document.getElementById("curtain-wrapper");
+            portalFrame.style.display = "flex";
+            
+            gsap.set(".left-curtain", { xPercent: 0, skewX: 0 });
+            gsap.set(".right-curtain", { xPercent: 0, skewX: 0 });
+            gsap.set("#curtain-content", { opacity: 0, scale: 0.92 });
+            
+            gsap.to(".left-curtain", { xPercent: -105, skewX: 2, duration: 2.2, ease: "power3.inOut" });
+            gsap.to(".right-curtain", { xPercent: 105, skewX: -2, duration: 2.2, ease: "power3.inOut" });
+            
+            gsap.to("#curtain-content", { opacity: 1, scale: 1, duration: 1.4, delay: 0.7, ease: "power2.out" });
+        }
+
+        function executeCurtainClosure() {
+            gsap.to("#curtain-content", { opacity: 0, scale: 0.92, duration: 0.5, ease: "power2.in" });
+            
+            gsap.to(".left-curtain", { xPercent: 0, skewX: 0, duration: 1.8, ease: "power3.inOut", delay: 0.1 });
+            gsap.to(".right-curtain", { xPercent: 0, skewX: 0, duration: 1.8, ease: "power3.inOut", delay: 0.1, onComplete: () => {
+                document.getElementById("curtain-wrapper").style.display = "none";
+            }});
+        }
+
+        const countdownLoop = setInterval(() => {
+            const currentPeriodTimestamp = new Date().getTime();
+            const absoluteDeltaDistance = celebrationTimelineTimestamp - currentPeriodTimestamp;
+
+            if (absoluteDeltaDistance < 0) {
+                clearInterval(countdownLoop);
+                return;
+            }
+
+            const calculatedDays = Math.floor(absoluteDeltaDistance / (1000 * 60 * 60 * 24));
+            const calculatedHours = Math.floor((absoluteDeltaDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const calculatedMinutes = Math.floor((absoluteDeltaDistance % (1000 * 60 * 60)) / (1000 * 60));
+            const calculatedSeconds = Math.floor((absoluteDeltaDistance % (1000 * 60)) / 1000);
+
+            document.getElementById("days-node").innerText = calculatedDays < 10 ? "0" + calculatedDays : calculatedDays;
+            document.getElementById("hours-node").innerText = calculatedHours < 10 ? "0" + calculatedHours : calculatedHours;
+            document.getElementById("minutes-node").innerText = calculatedMinutes < 10 ? "0" + calculatedMinutes : calculatedMinutes;
+            document.getElementById("seconds-node").innerText = calculatedSeconds < 10 ? "0" + calculatedSeconds : calculatedSeconds;
+        }, 1000);
+
+        renderEngagementSlides(engagementStep);
+        renderMemorySlides(memoryStep);
+
+        let engagementAutoTimer = setInterval(() => {
+            shiftEngagementSlides(1);
+        }, 2000);
+
+        setInterval(() => {
+            shiftMemorySlides(1);
+        }, 5000);
+
+        function shiftEngagementSlides(deltaValue) {
+            clearInterval(engagementAutoTimer);
+            renderEngagementSlides(engagementStep += deltaValue);
+            engagementAutoTimer = setInterval(() => {
+                shiftEngagementSlides(1);
+            }, 2000);
+        }
+
+        function shiftMemorySlides(deltaValue) {
+            renderMemorySlides(memoryStep += deltaValue);
+        }
+
+        function renderEngagementSlides(targetIndex) {
+            let photoFrames = document.getElementsByClassName("slide-frame");
+            if (photoFrames.length === 0) return;
+            
+            if (targetIndex > photoFrames.length) { engagementStep = 1 }
+            if (targetIndex < 1) { engagementStep = photoFrames.length }
+            
+            for (let idx = 0; idx < photoFrames.length; idx++) {
+                photoFrames[idx].style.display = "none";
+            }
+            
+            const activeFrame = photoFrames[engagementStep - 1];
+            activeFrame.style.display = "block";
+            
+            gsap.fromTo(activeFrame.querySelector("img"), 
+                { filter: "brightness(0.2) blur(8px)", scale: 1.1 },
+                { filter: "brightness(0.75) blur(0px)", scale: 1, duration: 0.9, ease: "power3.out" }
+            );
+
+            gsap.fromTo(activeFrame.querySelector(".cinematic-caption"),
+                { y: 10, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6, delay: 0.2, ease: "power2.out" }
+            );
+        }
+
+        function renderMemorySlides(targetIndex) {
+            let memoryFrames = document.getElementsByClassName("memory-frame");
+            if (memoryFrames.length === 0) return;
+            if (targetIndex > memoryFrames.length) { memoryStep = 1 }
+            if (targetIndex < 1) { memoryStep = memoryFrames.length }
+            for (let idx = 0; idx < memoryFrames.length; idx++) {
+                memoryFrames[idx].style.display = "none";
+            }
+            
+            const activeFrame = memoryFrames[memoryStep - 1];
+            activeFrame.style.display = "block";
+
+            gsap.fromTo(activeFrame.querySelector("img"), 
+                { filter: "brightness(0.2) blur(8px)", scale: 1.1 },
+                { filter: "brightness(0.85) blur(0px)", scale: 1, duration: 1, ease: "power3.out" }
+            );
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            const audio = document.getElementById("bg-music");
+            if(document.hidden){
+                audio.pause();
+            }else{
+                audio.play().catch(()=>{});
+            }
+        });
+    </script>
+</body>
+</html>
